@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input data-role="name" type="text" placeholder="Name here">
+    <input data-role="email" type="email" placeholder="email here">
+    <input data-role="tel" type="tel" placeholder="phone here">
+<button data-role="btn">contact us</button>
+
+
+
+<script>
+$('[data-role="btn"]').click(function(){
+    let name=$('[data-role="name"]').val()
+    let email=$('[data-role="email"]').val()
+    let tel=$('[data-role="tel"]').val()
+$.post( "/contact-us", {name,email,tel }, function( data ) {
+    $(".result").html(data);
+ console.log(name,email,tel);
+});
+})
+
+
+
+</script>
+
+
+</body>
+</html>
